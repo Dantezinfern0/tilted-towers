@@ -5,13 +5,7 @@ const _Scout = window.Scout
 class Solo extends Component {
   state = {
     loading: true,
-    soloData: [],
-    titleS: '',
-    killDeathRatioS: '',
-    matchesS: '',
-    winsS: '',
-    top12S: '',
-    winRateS: 0
+    soloData: []
   }
   componentDidMount = async () => {
     await _Scout.configure({
@@ -34,13 +28,6 @@ class Solo extends Component {
             console.log('Ajax call Done', data)
             this.setState({
               soloData: data,
-              titleS: data.segments[0].metadata[0].displayValue.split(' ', 1),
-              killsS: data.stats[0].displayValue,
-              matchesS: data.stats[2].displayValue,
-              winsS: data.stats[5].displayValue,
-              top12S: data.stats[8].displayValue,
-              killDeathRatioS: data.stats[11].displayValue,
-              winRateS: Math.round(data.stats[12].value * 100),
               loading: false
             })
           })
@@ -51,7 +38,7 @@ class Solo extends Component {
   
     return (
       <div>
-        <h1 className="title-header">Solo Page</h1>
+        <h1>Solo Page</h1>
       </div>
     )
   }
