@@ -1,6 +1,6 @@
 // This is the Display Model/Component for that stat box
 import React, { Component } from 'react'
-// commit
+
 class DisplayComponent extends Component {
   render() {
     return (
