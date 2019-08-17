@@ -1,44 +1,26 @@
 import React, { Component } from 'react'
-// import Scout from '../scout'
-const _Scout = window.Scout
+import Scout from '../scout'
 
 class Solo extends Component {
   state = {
     loading: true,
-    soloData: []
-  }
-  componentDidMount = async () => {
-    await _Scout.configure({
-      clientId: process.env.REACT_APP_CLIENT_ID,
-      clientSecret: process.env.REACT_APP_CLIENT_SECRET,
-      scope: 'public.read'
-    })
-
-    var titles = await _Scout.titles.list()
-    var fortnite = titles.find(t => t.slug === 'fortnite')
-
-    _Scout.players
-      .search('Ninja', 'epic', 'pc', fortnite.id, true, true)
-      .then(data => {
-        var playerId = data.results[0].player.playerId
-
-        _Scout.players
-          .get(fortnite.id, playerId, 'p2.br.m0.weekly')
-          .then(data => {
-            console.log('Ajax call Done', data)
-            this.setState({
-              soloData: data,
-              loading: false
-            })
-          })
-      })
+    soloData: 'p2.br.m0.weekly',
+    classColor: 'blue-color',
+    classColorLight: 'blue-color-light',
+    classColorDark: 'blue-color-dark',
+    classGradient: 'gradient-effect-blue'
   }
 
   render() {
-  
     return (
       <div>
-        <h1>Solo Page</h1>
+        <Scout
+          dataType={this.state.soloData}
+          classColor={this.state.classColor}
+          classColorLight={this.state.classColorLight}
+          classColorDark={this.state.classColorDark}
+          classGradient={this.state.classGradient}
+        />
       </div>
     )
   }

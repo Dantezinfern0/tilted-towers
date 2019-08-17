@@ -1,15 +1,31 @@
 import React, { Component } from 'react'
+import DisplayComponent from './components/DisplayComponent.jsx'
+// import '.././env'
 const _Scout = window.Scout
 
 class Scout extends Component {
   state = {
-    stats: []
+    title: '',
+    kills: '',
+    matches: '',
+    wins: '',
+    top3: '',
+    top3Name: '',
+    top6: '',
+    top6Name: '',
+    top12: '',
+    top12Name: '',
+    top: '',
+    topName: '',
+    killDeathRatio: '',
+    winRate: '',
   }
-  componentDidMount = async () => {
+  async componentDidMount() {
+    console.log(process.env.CLIENT_SECRET)
     await _Scout.configure({
-      clientId: 'af2ef8ea-a458-434e-8c00-26fb8f938eb1',
+      clientId: process.env.REACT_APP_CLIENT_ID,
       clientSecret:
-        '10dcae04dca819ab4dd0505fa6dc8b923242bd61230c612a1eaf3377987a4a59',
+        process.env.CLIENT_REACT_APP_SECRET,
       scope: 'public.read'
     })
 
@@ -22,33 +38,67 @@ class Scout extends Component {
         var playerId = data.results[0].player.playerId
 
         _Scout.players
-          .get(fortnite.id, playerId, 'p2.br.m0.weekly')
+          .get(fortnite.id, playerId, `${this.props.dataType}`)
           .then(data => {
-            console.log('Ajax call Done')
+            console.log(data,'Ajax call Done')
             this.setState({
-              stats: data
+              title: data.segments[0].metadata[0].displayValue.split(' ', 1),
+              kills: data.segments[0].stats[0].displayValue,
+              matches: data.segments[0].stats[2].displayValue,
+              wins: data.segments[0].stats[3].displayValue,
+              top3: data.segments[0].stats[4].displayValue,
+              top3Name:data.segments[0].stats[4].name,
+              top6: data.segments[0].stats[5].displayValue,
+              top6Name: data.segments[0].stats[5].name,
+              top12: data.segments[0].stats[6].displayValue,
+              top12Name: data.segments[0].stats[6].name,
+              killDeathRatio: data.segments[0].stats[8].displayValue,
+              winRate: Math.floor(data.stats[12].value * 100),
             })
-            // saving the data to a local storage to access it later
-            // sessionStorage.setItem('stats', JSON.stringify(data))
-            // console.log('fetched',data)
+            if (this.props.dataType === 'p2.br.m0.weekly'){
+              this.setState({
+                top: this.state.top3,
+                topName: this.state.top3Name
+              })
+            }else if (this.props.dataType === 'p10.br.m0.weekly'){
+              this.setState({
+                top: this.state.top6,
+                topName: this.state.top6Name
+              })
+            }else if (this.props.dataType === 'p9.br.m0.weekly'){
+              this.setState({
+                top: this.state.top12,
+                topName: this.state.top12Name
+              })
+            }else {
+              this.setState({
+                top: 'something',
+                topName: 'went wrong'
+              })
+            }
           })
       })
   }
 
-  // pull out of session storage and parse back into an object for use
-  // gameStats = JSON.parse(sessionStorage.getItem('stats'))
-  // log = console.log('parsed', this.gameStats)
-  // added _render_ on to the class to create a react component
   render() {
-    {
-      console.log('render')
-    }
     return (
       <>
-        <h1>Stats</h1>
-        <h2>
-          {/* {this.gameStats.metadata[0].key && this.gameStats.metadata[0].key} */}
-        </h2>
+        <div>
+          <DisplayComponent
+          title={this.state.title}
+          kills={this.state.kills}
+          matches={this.state.matches}
+          wins={this.state.wins}
+          top={this.state.top}
+          topName={this.state.topName}
+          killDeathRatio={this.state.killDeathRatio}
+          winRate={this.state.winRate}
+          classGradient={this.props.classGradient}
+          classColor={this.props.classColor}
+          classColorLight={this.props.classColorLight}
+          classColorDark={this.props.classColorDark}
+          />
+        </div>
       </>
     )
   }

@@ -4,20 +4,17 @@ import Solo from './components/Solo.jsx'
 import Duo from './components/Duo.jsx'
 import Squads from './components/Squads.jsx'
 import Home from './components/Home.jsx'
-import NavBar from './components/NavBar.jsx'
 import './App.css'
 require('dotenv').config({
   path: '../.env'
 })
-// import logo from './logo.svg'
-// import Scout from './scout'
+
 
 class App extends Component {
   render() {
     return (
       <>
         <Router>
-        <NavBar />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/solo" component={Solo} />

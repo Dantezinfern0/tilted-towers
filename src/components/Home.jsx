@@ -12,9 +12,9 @@ class Home extends Component {
         <NavBar />
         </div>
         <span className="home-page-flex">
-          <Solo className=""/>
-          <Duo className="" />
-          <Squads className="" />
+          <Solo />
+          <Duo  />
+          <Squads  />
         </span>
       </div>
     )
