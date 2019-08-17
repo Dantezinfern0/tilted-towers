@@ -8,14 +8,14 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div className="pad-bottom">
         <NavBar />
         </div>
-        <span className="home-page-flex">
+        <div className="home-page-flex">
           <Solo />
           <Duo  />
           <Squads  />
-        </span>
+        </div>
       </div>
     )
   }

@@ -13,16 +13,16 @@ class DisplayComponent extends Component {
             <div className={`${this.props.classGradient}`}>
               <p />
             </div>
-            <div className="pad">
-              <p>Matches </p>
+            <div className="pad flex-row">
+              <p>Matches</p>
               <h2>{this.props.matches}</h2>
             </div>
-            <div className="pad">
-              <p>Kills </p>
+            <div className="pad flex-row">
+              <p>Kills</p>
               <h2>{this.props.kills}</h2>
             </div>
           </header>
-          <section className={`flex-row ${this.props.classColor}`}>
+          <section className={`ivory flex-row ${this.props.classColor}`}>
             <div className="pad">
               <h1>{this.props.killDeathRatio}</h1>
               <p>K/D Ratio</p>
@@ -33,45 +33,49 @@ class DisplayComponent extends Component {
             </div>
           </section>
           <section className="flex-row">
-            <section>
+            <section className="full-width">
               <div>
                 <div>
-                  <div className="pad">
-                    <h3>wins</h3>
+                  <div className="pad thin-gray-border flex-row">
+                    <h4>wins</h4>
                     <p>{this.props.wins}</p>
                   </div>
                 </div>
+
                 <div>
-                  <div className="pad">
-                    <h3>Win Rate</h3>
+                  <div className="pad thin-gray-border flex-row">
+                    <h4>Win Rate</h4>
                     <p>{this.props.winRate}%</p>
                   </div>
                 </div>
+
                 <div>
-                  <div className="pad">
-                    <h3>Matches</h3>
+                  <div className="pad thin-gray-border flex-row">
+                    <h4>Matches</h4>
                     <p>{this.props.matches}</p>
                   </div>
                 </div>
               </div>
             </section>
-            <section>
+            <section className="full-width">
               <div>
                 <div>
-                  <div className="pad">
-                    <h3>{this.props.topName}</h3>
+                  <div className="pad thin-gray-border flex-row">
+                    <h4>{this.props.topName}</h4>
                     <p>{this.props.top}</p>
                   </div>
                 </div>
+
                 <div>
-                  <div className="pad">
-                    <h3>K/D Ratio</h3>
+                  <div className="pad thin-gray-border flex-row">
+                    <h4>K/D Ratio</h4>
                     <p>{this.props.killDeathRatio}</p>
                   </div>
                 </div>
+
                 <div>
-                  <div className="pad">
-                    <h3>Kills</h3>
+                  <div className="pad thin-gray-border flex-row">
+                    <h4>Kills</h4>
                     <p>{this.props.kills}</p>
                   </div>
                 </div>

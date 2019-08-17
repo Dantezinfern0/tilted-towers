@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');
 @media screen and (max-width: 400px) {
-  .flex-box-three {
-    flex-wrap:wrap;
-  }
   .header-flex {
+    flex-wrap: wrap;
+  }
+  .home-page-flex {
     flex-wrap: wrap;
   }
 }
@@ -69,9 +69,9 @@ button {
   flex-direction: row;
   align-content: center;
 }
-
-
-
+.ivory {
+  color: ivory;
+}
 .header-flex {
   display: flex;
   flex-direction: row;
@@ -85,6 +85,9 @@ button {
 .bold-font-weight {
   font-weight: 900;
 }
+.justify-bottom {
+  padding-top:2rem;
+}
 .thin-gray-border {
   border-style: solid;
   border-color: gray;
@@ -94,11 +97,18 @@ button {
   padding-bottom: 1rem;
 }
 .pad {
-  padding: 0rem 0.5rem 0 0.5rem;
+  padding: 0 0.5rem 0 0.5rem;
+  max-width:100%;
+}
+.pad-bottom {
+  padding-bottom: 1rem;
 }
 .flex-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+.full-width {
+  width: 100%;
 }
 

@@ -8,7 +8,7 @@ class NavBar extends Component {
       <div>
         <header className="nav-bar">
           <section>
-            <h2>Fortnite</h2>
+            <Link to="/"><h2>Fortnite</h2></Link>
           </section>
           <section>
             <Link to="/solo">
