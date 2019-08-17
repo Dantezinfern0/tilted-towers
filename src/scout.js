@@ -5,6 +5,18 @@ const _Scout = window.Scout
 
 class Scout extends Component {
   state = {
+    soloColor: 'blue-color',
+    soloColorLight: 'blue-color-Light',
+    soloColorDark: 'blue-color-Dark',
+    soloGradient: 'gradient-effect-blue',
+    duoColor: 'orange-color',
+    duoColorLight: 'orange-color-light',
+    duoColorDark: 'orange-color-dark',
+    duoGradient: 'gradient-effect-orange',
+    squadColor: 'purple-color',
+    squadColorLight: 'purple-color-light',
+    squadColorDark: 'purple-color-dark',
+    squadGradient: 'gradient-effect-purple',
     title: '',
     kills: '',
     matches: '',
