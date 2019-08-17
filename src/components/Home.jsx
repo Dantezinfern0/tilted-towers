@@ -2,19 +2,22 @@ import React, { Component } from 'react'
 import Solo from './Solo.jsx'
 import Duo from './Duo.jsx'
 import Squads from './Squads.jsx'
-import NavBar from './NavBar.jsx'
+
 
 class Home extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      playerName: '',
+    }
+  }
   render() {
     return (
       <div>
-        <div className="pad-bottom">
-        <NavBar />
-        </div>
         <div className="home-page-flex">
-          <Solo />
-          <Duo  />
-          <Squads  />
+          <Solo playerName={this.props.playerName}/>
+          <Duo  playerName={this.props.playerName}/>
+          <Squads playerName={this.props.playerName} />
         </div>
       </div>
     )

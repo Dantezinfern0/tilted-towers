@@ -5,6 +5,7 @@ import Duo from './components/Duo.jsx'
 import Squads from './components/Squads.jsx'
 import Home from './components/Home.jsx'
 import Search from './components/Search.jsx'
+import NavBar from './components/NavBar.jsx'
 import './App.css'
 require('dotenv').config({
   path: '../.env'
@@ -15,6 +16,7 @@ class App extends Component {
     return (
       <>
         <Router>
+          <NavBar/>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/solo" component={Solo} />

@@ -60,14 +60,15 @@ button {
 }
 .form-layout {
  text-align:  center;
- margin-top: 5rem;
+ margin: 5rem;
+ padding: 5rem;
 }
 .nav-bar {
-  position: fixed;
-  margin: 1rem 1rem 1rem 1rem;
+  position: sticky;
   display: flex;
   flex-direction: row;
   align-content: center;
+  justify-content: center;
 }
 .ivory {
   color: ivory;
