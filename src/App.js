@@ -4,11 +4,11 @@ import Solo from './components/Solo.jsx'
 import Duo from './components/Duo.jsx'
 import Squads from './components/Squads.jsx'
 import Home from './components/Home.jsx'
+import Search from './components/Search.jsx'
 import './App.css'
 require('dotenv').config({
   path: '../.env'
 })
-
 
 class App extends Component {
   render() {
@@ -20,6 +20,7 @@ class App extends Component {
             <Route exact path="/solo" component={Solo} />
             <Route exact path="/duo" component={Duo} />
             <Route exact path="/squads" component={Squads} />
+            <Route exact path="/search" component={Search} />
           </Switch>
         </Router>
       </>

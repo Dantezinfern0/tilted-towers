@@ -48,7 +48,6 @@ class DisplayComponent extends Component {
                     <p>{this.props.winRate}%</p>
                   </div>
                 </div>
-
                 <div>
                   <div className="pad thin-gray-border flex-row">
                     <h4>Matches</h4>
@@ -65,14 +64,12 @@ class DisplayComponent extends Component {
                     <p>{this.props.top}</p>
                   </div>
                 </div>
-
                 <div>
                   <div className="pad thin-gray-border flex-row">
                     <h4>K/D Ratio</h4>
                     <p>{this.props.killDeathRatio}</p>
                   </div>
                 </div>
-
                 <div>
                   <div className="pad thin-gray-border flex-row">
                     <h4>Kills</h4>

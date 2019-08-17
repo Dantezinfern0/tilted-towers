@@ -31,6 +31,7 @@ class Scout extends Component {
     topName: '',
     killDeathRatio: '',
     winRate: '',
+    playerName: 'Ninja'
   }
   async componentDidMount() {
     console.log(process.env.CLIENT_SECRET)
@@ -45,7 +46,7 @@ class Scout extends Component {
     var fortnite = titles.find(t => t.slug === 'fortnite')
 
     _Scout.players
-      .search('Ninja', 'epic', 'pc', fortnite.id, true, true)
+      .search(`${playerName}`, 'epic', 'pc', fortnite.id, true, true)
       .then(data => {
         var playerId = data.results[0].player.playerId
 

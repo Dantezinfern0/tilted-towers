@@ -20,6 +20,9 @@ class NavBar extends Component {
             <Link to="/squads">
               <button>Squads</button>
             </Link>
+            <Link to="/search">
+              <button>Search</button>
+            </Link>
           </section>
         </header>
       </div>
