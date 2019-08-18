@@ -3,7 +3,7 @@ import Home from './Home.jsx'
 
 export default function Form() {
   const [playerName, setPlayerName] = useState('Ninja')
-const [search, setSearch] = useState(false)
+  const [search, setSearch] = useState(false)
   function updateValue(e) {
     e.preventDefault()
     setSearch(true)
@@ -17,10 +17,10 @@ const [search, setSearch] = useState(false)
           placeholder="name.."
           onChange={e => setPlayerName(e.target.value)}
         />
-        <button type="button">search</button>
+        <button onClick="submit"
+        type="button">search</button>
       </form>
       {search && <Home playerName={playerName} />}
     </div>
   )
 }
-
