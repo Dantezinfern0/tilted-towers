@@ -1,37 +1,26 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Home from './Home.jsx'
 
-
-class Search extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      playerName: 'Ninja'
-    }
-  }
-  updateValue = e => {
+export default function Form() {
+  const [playerName, setPlayerName] = useState('Ninja')
+const [search, setSearch] = useState(false)
+  function updateValue(e) {
     e.preventDefault()
-    console.log(e.target.value)
-    this.setState({
-      playerName: e.target.value,
-    })
+    setSearch(true)
   }
-  render() {
-    return (
-      <div>
-        <form className="form-layout">
-          <input 
+
+  return (
+    <div>
+      <form onSubmit={e => updateValue(e)} className="form-layout">
+        <input
           type="text"
           placeholder="name.."
-           />
-           <button 
-           onClick={e => this.updateValue}
-           type="button">search</button>
-        </form>
-        {this.playerName && <Home playerName={this.state.playerName}/>}
-      </div>
-    )
-  }
+          onChange={e => setPlayerName(e.target.value)}
+        />
+        <button type="button">search</button>
+      </form>
+      {search && <Home playerName={playerName} />}
+    </div>
+  )
 }
 
-export default Search

@@ -1,24 +1,11 @@
 import React, { Component } from 'react'
 import DisplayComponent from './components/DisplayComponent.jsx'
-// import '.././env'
 const _Scout = window.Scout
 
 class Scout extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      soloColor: 'blue-color',
-      soloColorLight: 'blue-color-Light',
-      soloColorDark: 'blue-color-Dark',
-      soloGradient: 'gradient-effect-blue',
-      duoColor: 'orange-color',
-      duoColorLight: 'orange-color-light',
-      duoColorDark: 'orange-color-dark',
-      duoGradient: 'gradient-effect-orange',
-      squadColor: 'purple-color',
-      squadColorLight: 'purple-color-light',
-      squadColorDark: 'purple-color-dark',
-      squadGradient: 'gradient-effect-purple',
       title: '',
       kills: '',
       matches: '',
@@ -37,10 +24,14 @@ class Scout extends Component {
     }
   }
   async componentDidMount() {
-    console.log(process.env.CLIENT_SECRET)
+    if (this.state.playerName !== 'Ninja'){
+      this.setState({
+        playerName: this.props.playerName,
+      })
+    }
     await _Scout.configure({
       clientId: process.env.REACT_APP_CLIENT_ID,
-      clientSecret: process.env.CLIENT_REACT_APP_SECRET,
+      clientSecret: process.env.REACT_APP_CLIENT_SECRET,
       scope: 'public.read'
     })
 
